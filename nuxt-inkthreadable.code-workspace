@@ -1,0 +1,49 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // Language-specific settings
+    "[vue]": {
+      "editor.defaultFormatter": "Vue.volar"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // ESLint settings
+    "eslint.useFlatConfig": true,
+    // Git settings
+    "git.autofetch": true,
+    "git.confirmSync": false,
+  },
+  "extensions": {
+    "unwantedRecommendations": [],
+    "recommendations": [
+      "britesnow.vscode-toggle-quotes",
+      "ms-vscode-remote.remote-containers",
+      "christian-kohler.npm-intellisense",
+      "vue.volar",
+      "editorconfig.editorconfig",
+      "dbaeumer.vscode-eslint",
+      "donjayamanne.githistory",
+      "github.vscode-github-actions",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "rvest.vs-code-prettier-eslint"
+    ]
+  }
+}
