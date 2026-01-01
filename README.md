@@ -23,7 +23,7 @@ A Nuxt module for connecting to and interacting with the Inkthreadable API.
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add @soundsdesigned/nuxt-inkthreadable
+npx nuxi module add @sounds-designed/nuxt-inkthreadable
 ```
 
 That's it! You can now use the Inkthreadable Module in your Nuxt app ✨
@@ -62,14 +62,14 @@ That's it! You can now use the Inkthreadable Module in your Nuxt app ✨
 
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@soundsdesigned/nuxt-inkthreadable/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/@soundsdesigned/nuxt-inkthreadable
+[npm-version-src]: https://img.shields.io/npm/v/@sounds-designed/nuxt-inkthreadable/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/@sounds-designed/nuxt-inkthreadable
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/@soundsdesigned/nuxt-inkthreadable.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/@soundsdesigned/nuxt-inkthreadable
+[npm-downloads-src]: https://img.shields.io/npm/dm/@sounds-designed/nuxt-inkthreadable.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/@sounds-designed/nuxt-inkthreadable
 
-[license-src]: https://img.shields.io/npm/l/@soundsdesigned/nuxt-inkthreadable.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/@soundsdesigned/nuxt-inkthreadable
+[license-src]: https://img.shields.io/npm/l/@sounds-designed/nuxt-inkthreadable.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/@sounds-designed/nuxt-inkthreadable
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt
 [nuxt-href]: https://nuxt.com

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@soundsdesigned/nuxt-inkthreadable-playground",
+  "name": "@sounds-designed/nuxt-inkthreadable-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

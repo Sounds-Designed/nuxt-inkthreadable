@@ -1,5 +1,5 @@
 {
-  "name": "@soundsdesigned/nuxt-inkthreadable",
+  "name": "@sounds-designed/nuxt-inkthreadable",
   "version": "0.0.1",
   "description": "A Nuxt module for connecting to the Inkthreadable API",
   "repository": "Sounds-Designed/nuxt-inkthreadable",
@@ -50,7 +50,7 @@
     "nuxt": "^4.2.2",
     "playwright-core": "^1.57.0",
     "typescript": "~5.9.3",
-    "vitest": "^4.0.16",
+    "vitest": "^3.2.4",
     "vue-tsc": "^3.2.1"
   }
 }

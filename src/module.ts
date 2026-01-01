@@ -5,7 +5,7 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@soundsdesigned/nuxt-inkthreadable',
+    name: '@sounds-designed/nuxt-inkthreadable',
     configKey: 'inkthreadable',
   },
   // Default configuration options of the Nuxt module
