@@ -2,7 +2,10 @@
   "name": "@sounds-designed/nuxt-inkthreadable",
   "version": "0.0.2",
   "description": "A Nuxt module for connecting to the Inkthreadable API",
-  "repository": "Sounds-Designed/nuxt-inkthreadable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sounds-Designed/nuxt-inkthreadable.git"
+  },
   "license": "GPL-3.0-or-later",
   "type": "module",
   "exports": {
