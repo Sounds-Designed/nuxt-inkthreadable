@@ -1,0 +1,22 @@
+{
+  "arrowParens": "avoid",
+  "semi": true,
+  "singleQuote": false,
+  "singleAttributePerLine": true,
+  "htmlWhitespaceSensitivity": "css",
+  "printWidth": 120,
+  "plugins": ["prettier-plugin-organize-imports"],
+  "tailwindFunctions": ["clsx", "cn"],
+  "tabWidth": 2,
+  "useTabs": false,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "bracketSpacing": true,
+  "objectWrap": "collapse",
+  "bracketSameLine": true,
+  "vueIndentScriptAndStyle": true,
+  "insertPragma": false,
+  "checkIgnorePragma": true,
+  "endOfLine": "lf",
+  "overrides": [{ "files": "**/*.yml", "options": { "tabWidth": 2 } }]
+}
