@@ -28,6 +28,10 @@ export default defineNuxtModule<InkthreadableOptions>({
         debug: _options.debug,
         enabled: _options.enabled,
       });
+
+      // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
+      addPlugin(resolver.resolve("./runtime/plugin"));
+
     }
   },
 });
