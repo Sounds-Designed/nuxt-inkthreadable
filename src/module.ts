@@ -32,6 +32,10 @@ export default defineNuxtModule<InkthreadableOptions>({
       // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
       addPlugin(resolver.resolve("./runtime/plugin"));
 
+      addServerHandler({
+        route: "/api/_inkthreadable/orders/count",
+        handler: resolver.resolve("./runtime/server/count.get"),
+      });
     }
   },
 });
