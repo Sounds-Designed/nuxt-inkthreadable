@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^4.3.0",
+    "js-sha1": "^0.7.0",
     "unplugin": "^2.3.11",
     "unplugin-auto-import": "^21.0.0"
   },
@@ -58,6 +59,7 @@
     "msw": "^2.12.8",
     "nuxt": "^4.2.2",
     "playwright-core": "^1.57.0",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "typescript": "~5.9.3",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0",
