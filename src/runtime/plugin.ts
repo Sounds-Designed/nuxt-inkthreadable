@@ -1,14 +1,20 @@
-import { defineNuxtPlugin, useRuntimeConfig } from '#app'
+import { defineNuxtPlugin, useRuntimeConfig } from "#app";
+import { createOrder, deleteOrder, getOrderCount, getOrders } from "./utils";
 
-export default defineNuxtPlugin((_nuxtApp) => {
-  const config = useRuntimeConfig()
+export default defineNuxtPlugin(_nuxtApp => {
+  const config = useRuntimeConfig();
 
-  if (config.public.inkthreadable.debug) {
-    console.log('Inkthreadable plugin initialized successfully: \n%o', {
-      appId: config.inkthreadable?.appId,
-      secretKey: config.inkthreadable?.secretKey,
-      debug: config.public.inkthreadable?.debug,
-      enabled: config.public.inkthreadable?.enabled,
-    })
-  }
-})
+  if(!(config && config.inkthreadable)) return;
+
+  const { appId, secretKey } = config.inkthreadable;
+  const { inkthreadable } = config.public;
+
+  return {
+    provide: {
+      createOrder: (data: unknown) => createOrder(appId, secretKey, data, inkthreadable),
+      deleteOrder: (orderId: string | number) => deleteOrder(appId, secretKey, orderId, inkthreadable),
+      getOrderCount: () => getOrderCount(appId, secretKey, inkthreadable),
+      getOrders: () => getOrders(appId, secretKey),
+    },
+  };
+});

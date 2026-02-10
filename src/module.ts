@@ -1,4 +1,4 @@
-import { addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addPlugin, addServerHandler, addServerPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { ModuleOptions } from 'nuxt/schema'
 
@@ -21,7 +21,7 @@ export default defineNuxtModule<InkthreadableOptions>({
     apiEnabled: false,
     apiPrefix: '_inkthreadable',
     appId: '',
-    baseURL: 'https://inkthreadable.co.uk',
+    baseURL: 'https://www.inkthreadable.co.uk',
     debug: false,
     enabled: true,
     secretKey: '',
@@ -36,23 +36,19 @@ export default defineNuxtModule<InkthreadableOptions>({
       })
 
       _nuxt.options.runtimeConfig.public.inkthreadable = defu(_nuxt.options.runtimeConfig.public.inkthreadable, {
+        apiEnabled: _options.apiEnabled,
         apiPrefix: _options.apiPrefix,
         baseURL: _options.baseURL,
         debug: _options.debug,
         enabled: _options.enabled,
       })
 
-      console.log('Opt: %o', _nuxt.options.runtimeConfig.public.inkthreadable)
-      console.log(_options)
-
       // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
       addPlugin(resolver.resolve('./runtime/plugin'))
 
       const _apiPrefix = _nuxt.options.runtimeConfig.public.inkthreadable.apiPrefix ? _nuxt.options.runtimeConfig.public.inkthreadable.apiPrefix + '/' : ''
 
-      console.log('API Prefix: %s', _apiPrefix)
-
-      if (_options.apiEnabled) {
+      if (_nuxt.options.runtimeConfig.public.inkthreadable.apiEnabled) {
         console.log('API Enabled')
         addServerHandler({
           route: `/api/${_apiPrefix}orders/count`,
