@@ -11,7 +11,7 @@ export default async (
   orderId: string | number,
   options?: Partial<GetInkthreadableOrderCountOptions>,
 ) => {
-  const _defaults = { baseURL: 'https://inkthreadable.co.uk', debug: false }
+  const _defaults = { baseURL: 'https://www.inkthreadable.co.uk', debug: false }
 
   const { baseURL, debug } = options ? Object.assign({}, _defaults, options) : _defaults
 

@@ -1,8 +1,9 @@
-import { sha1 } from 'js-sha1'
+import { sha1 } from "js-sha1";
+import logger from "../../utils/logger";
 
 interface GetInkthreadableOrderCountOptions {
-  baseURL: string
-  debug: boolean
+  baseURL: string;
+  debug: boolean;
 }
 
 export default async (
@@ -11,11 +12,12 @@ export default async (
   data: unknown,
   options?: Partial<GetInkthreadableOrderCountOptions>,
 ) => {
-  const _defaults = { baseURL: 'https://inkthreadable.co.uk', debug: false }
+  const _defaults = { baseURL: "https://www.inkthreadable.co.uk", debug: false };
 
-  const { baseURL, debug } = options ? Object.assign({}, _defaults, options) : _defaults
+  const { baseURL, debug } = options ? Object.assign({}, _defaults, options) : _defaults;
 
-  if (debug) console.log('Getting Order Count')
+  if (debug) logger.start("Creating Order");
+  if (debug) logger.start("App ID: %s", appId);
 
   // Test data
   // const data = {
@@ -50,18 +52,31 @@ export default async (
   //   ],
   // };
 
-  const body = JSON.stringify(data)
+  const body = JSON.stringify(data);
+
+  if (debug) logger.info("Order Data:\n%o", data);
+
   const signature = sha1
     .create()
     .update(body + secretKey)
-    .hex()
+    .hex();
 
-  const url = `${baseURL}/api/orders.php?AppId=${appId}&Signature=${signature}`
+  if (debug) logger.info("Signature: %s", signature);
 
-  return $fetch(url, {
+  return $fetch(`/api/orders.php`, {
     body: body,
-    mode: 'cors',
-    method: 'POST',
+    query: { AppId: appId, Signature: signature },
+    baseURL: baseURL,
+    mode: "cors",
+    method: "POST",
     ignoreResponseError: true,
-  })
-}
+  }).then(res => {
+    if (debug) logger.success("Order Created");
+
+    return res;
+  }).catch(error => {
+    logger.error(error)
+
+    throw error;
+  });
+};
