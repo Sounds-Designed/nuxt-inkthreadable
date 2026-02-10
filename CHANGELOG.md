@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Playground config ([941c057](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/941c057))
+- Playground config ([5f33383](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/5f33383))
+- Playground app improvements ([fd80b1b](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/fd80b1b))
+- Utility function improvements ([ac526ff](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/ac526ff))
+- Demo server plugin ([9f59ff9](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/9f59ff9))
+
+### 🩹 Fixes
+
+- Lint issues ([521cfa1](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/521cfa1))
+
+### 🏡 Chore
+
+- **release:** V0.0.5 ([05252b4](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/05252b4))
+- Code cleanup ([30edf4a](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/30edf4a))
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v0.0.5
 
 [compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v0.0.4...v0.0.5)
