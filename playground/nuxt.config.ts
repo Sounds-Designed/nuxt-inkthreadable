@@ -7,4 +7,4 @@ export default defineNuxtConfig({
     debug: true,
   },
   runtimeConfig: { public: { inkthreadable: { debug: true } } },
-})
+});
