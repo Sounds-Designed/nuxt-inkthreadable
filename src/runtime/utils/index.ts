@@ -1,4 +1,6 @@
 export { default as getOrderCount } from './count-orders'
+export { default as getOrder } from './get-order'
 export { default as getOrders } from './get-orders'
 export { default as createOrder } from './create-order'
 export { default as deleteOrder } from './delete-order'
+export { default as logger } from './logger'

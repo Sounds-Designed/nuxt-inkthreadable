@@ -1,5 +1,5 @@
 import { sha1 } from 'js-sha1'
-import logger from '../../utils/logger'
+import logger from './logger'
 
 interface GetInkthreadableOrderCountOptions {
   baseURL: string
