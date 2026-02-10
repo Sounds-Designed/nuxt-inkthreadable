@@ -36,6 +36,24 @@ export default defineNuxtModule<InkthreadableOptions>({
         route: "/api/_inkthreadable/orders/count",
         handler: resolver.resolve("./runtime/server/count.get"),
       });
+
+      addServerHandler({
+        route: "/api/_inkthreadable/orders",
+        method: "get",
+        handler: resolver.resolve("./runtime/server/orders.get"),
+      });
+
+      addServerHandler({
+        route: "/api/_inkthreadable/orders",
+        method: "delete",
+        handler: resolver.resolve("./runtime/server/orders.delete"),
+      });
+
+      addServerHandler({
+        route: "/api/_inkthreadable/orders",
+        method: "post",
+        handler: resolver.resolve("./runtime/server/orders.post"),
+      });
     }
   },
 });
