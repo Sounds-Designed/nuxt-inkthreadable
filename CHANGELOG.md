@@ -1,6 +1,20 @@
 # Changelog
 
 
+## v1.0.0
+
+### Initial v1 release
+
+- Fully functional disable-able endpoints
+- Fully functional provided helper methods
+- Runtime config
+- Fully configurable base URL for debugging and testing purposes
+- Debug log integration
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v0.0.7
 
 [compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v0.0.6...v0.0.7)
