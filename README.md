@@ -8,7 +8,7 @@
 A Nuxt module for connecting to and interacting with the Inkthreadable API.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/Sounds-Designed/nuxt-inkthreadable?file=playground%2Fapp.vue)
+- [🏀 Online playground](https://stackblitz.com/github/Sounds-Designed/nuxt-inkthreadable?file=playground%2Fapp%2Fapp.vue)
 <!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 <!-- ## Features -->
