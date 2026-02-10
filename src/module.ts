@@ -5,7 +5,10 @@ import type { ModuleOptions } from "nuxt/schema";
 // Module options TypeScript interface definition
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface InkthreadableOptions extends ModuleOptions {
-  appId: string;
+  apiEnabled?: boolean;
+  apiPrefix?: string;
+  appId?: string;
+  baseURL?: string;
   debug?: boolean;
   enabled?: boolean;
   secretKey: string;
@@ -14,7 +17,15 @@ export interface InkthreadableOptions extends ModuleOptions {
 export default defineNuxtModule<InkthreadableOptions>({
   meta: { name: "@sounds-designed/nuxt-inkthreadable", configKey: "inkthreadable" },
   // Default configuration options of the Nuxt module
-  defaults: { appId: "", debug: false, enabled: true, secretKey: "" },
+  defaults: {
+    apiEnabled: false,
+    apiPrefix: "_inkthreadable",
+    appId: "",
+    baseURL: "https://inkthreadable.co.uk",
+    debug: false,
+    enabled: true,
+    secretKey: "",
+  },
   setup(_options, _nuxt) {
     const resolver = createResolver(import.meta.url);
 
@@ -25,35 +36,47 @@ export default defineNuxtModule<InkthreadableOptions>({
       });
 
       _nuxt.options.runtimeConfig.public.inkthreadable = defu(_nuxt.options.runtimeConfig.public.inkthreadable, {
+        apiPrefix: _options.apiPrefix,
+        baseURL: _options.baseURL,
         debug: _options.debug,
         enabled: _options.enabled,
       });
 
+      console.log("Opt: %o", _nuxt.options.runtimeConfig.public.inkthreadable)
+      console.log(_options)
+
       // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
       addPlugin(resolver.resolve("./runtime/plugin"));
 
-      addServerHandler({
-        route: "/api/_inkthreadable/orders/count",
-        handler: resolver.resolve("./runtime/server/count.get"),
-      });
+      const _apiPrefix = _nuxt.options.runtimeConfig.public.inkthreadable.apiPrefix ? _nuxt.options.runtimeConfig.public.inkthreadable.apiPrefix + "/" : ""
 
-      addServerHandler({
-        route: "/api/_inkthreadable/orders",
-        method: "get",
-        handler: resolver.resolve("./runtime/server/orders.get"),
-      });
+      console.log("API Prefix: %s", _apiPrefix)
 
-      addServerHandler({
-        route: "/api/_inkthreadable/orders",
-        method: "delete",
-        handler: resolver.resolve("./runtime/server/orders.delete"),
-      });
+      if (_options.apiEnabled) {
+        console.log("API Enabled")
+        addServerHandler({
+          route: `/api/${_apiPrefix}orders/count`,
+          handler: resolver.resolve("./runtime/server/count.get"),
+        });
 
-      addServerHandler({
-        route: "/api/_inkthreadable/orders",
-        method: "post",
-        handler: resolver.resolve("./runtime/server/orders.post"),
-      });
+        addServerHandler({
+          route: `/api/${_apiPrefix}orders`,
+          method: "get",
+          handler: resolver.resolve("./runtime/server/orders.get"),
+        });
+
+        addServerHandler({
+          route: `/api/${_apiPrefix}orders`,
+          method: "delete",
+          handler: resolver.resolve("./runtime/server/orders.delete"),
+        });
+
+        addServerHandler({
+          route: `/api/${_apiPrefix}orders`,
+          method: "post",
+          handler: resolver.resolve("./runtime/server/orders.post"),
+        });
+      }
     }
   },
 });
