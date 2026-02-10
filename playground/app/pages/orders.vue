@@ -9,10 +9,14 @@
     fetch("/api/_inkthreadable/orders/count");
   };
 
+  const orders = ref([]);
+
   const getOrders = () => {
     console.log("Getting Orders");
 
-    fetch("/api/_inkthreadable/orders");
+    fetch("/api/_inkthreadable/orders").then(async res => {
+      orders.value = (await res.json()).map(i => i.order);
+    });
   };
 
   const submitOrder = () => {
@@ -23,6 +27,7 @@
       body: JSON.stringify({
         brandName: "Sounds Designed",
         comment: "Test order.",
+        packing_slip: "https:\/\/drive.google.com\/uc?id=1eeZROApBIwfzRw89mVG_KuZa2coJS2BJ",
         shipping_address: {
           firstName: "Alex",
           lastName: "Scott",
@@ -38,14 +43,15 @@
         shipping: { shippingMethod: "courier" },
         items: [
           {
-            pn: "JH001",
+            pn: "JH003-AW/FN-M",
             quantity: 1,
             retailPrice: 50,
             description: "Please print as large as posible",
             label: { type: "printed", name: "system-1 top gal" },
             designs: {
-              front: "http://animalfair.com/wp-content/uploads/2014/06/little_cute_cat_1920x1080.jpg",
-              back: "http://data3.whicdn.com/images/168204223/large.jpg",
+              front:
+                "https:\/\/www.inkthreadable.co.uk\/images\/pictures\/00-2023\/2023-assets\/core-images\/creator-(product).png?v=365913d1",
+              back: "https:\/\/www.inkthreadable.co.uk\/images\/pictures\/00-2023\/2023-assets\/core-images\/creator-(product).png?v=365913d1",
             },
           },
         ],
@@ -53,12 +59,15 @@
     });
   };
 
-  const deleteOrder = (orderId: string | number) => {
+  const deleteOrder = async (orderId: string | number) => {
     console.log("Deleting Order: %s", orderId);
+    await fetch("/api/_inkthreadable/orders", { method: "DELETE", body: JSON.stringify({ orderId: orderId }) });
+
+    getOrders();
   };
 
-  const orders = Array.from(new Array(5), (item, idx) => {
-    return { id: idx + 1 };
+  onMounted(() => {
+    getOrders();
   });
 </script>
 
@@ -74,11 +83,6 @@
       <div
         v-for="order in orders"
         :key="order.id">
-        <pre>
-          <code>
-{{ order }}
-          </code>
-        </pre>
         <NuxtLink :to="{ name: `order-id`, params: { id: order.id } }">View Order</NuxtLink>
         <button @click="() => getOrder(order.id)">Get Order</button>
         <button @click="() => deleteOrder(order.id)">Delete Order</button>
