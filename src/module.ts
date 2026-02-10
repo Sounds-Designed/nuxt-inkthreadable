@@ -62,6 +62,12 @@ export default defineNuxtModule<InkthreadableOptions>({
         })
 
         addServerHandler({
+          route: `/api/${_apiPrefix}order/:id`,
+          method: 'get',
+          handler: resolver.resolve('./runtime/server/order.get'),
+        })
+
+        addServerHandler({
           route: `/api/${_apiPrefix}orders`,
           method: 'delete',
           handler: resolver.resolve('./runtime/server/orders.delete'),
