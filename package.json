@@ -2,7 +2,10 @@
   "name": "@sounds-designed/nuxt-inkthreadable",
   "version": "0.0.3",
   "description": "A Nuxt module for connecting to the Inkthreadable API",
-  "repository": "Sounds-Designed/nuxt-inkthreadable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sounds-Designed/nuxt-inkthreadable.git"
+  },
   "license": "GPL-3.0-or-later",
   "type": "module",
   "exports": {
@@ -37,7 +40,10 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.2.2"
+    "@nuxt/kit": "^4.3.0",
+    "js-sha1": "^0.7.0",
+    "unplugin": "^2.3.11",
+    "unplugin-auto-import": "^21.0.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^3.1.1",
@@ -50,10 +56,14 @@
     "changelogen": "^0.6.2",
     "eslint": "^9.39.2",
     "happy-dom": "^20.0.11",
+    "msw": "^2.12.8",
     "nuxt": "^4.2.2",
     "playwright-core": "^1.57.0",
+    "prettier-plugin-organize-imports": "^4.3.0",
     "typescript": "~5.9.3",
     "vitest": "^3.2.4",
+    "vitest-axe": "^0.1.0",
+    "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^3.2.1"
   }
 }
