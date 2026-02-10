@@ -1,13 +1,13 @@
-import { defineNuxtPlugin, useRuntimeConfig } from "#app";
-import { createOrder, deleteOrder, getOrderCount, getOrders } from "./utils";
+import { defineNuxtPlugin, useRuntimeConfig } from '#app'
+import { createOrder, deleteOrder, getOrderCount, getOrders } from './utils'
 
-export default defineNuxtPlugin(_nuxtApp => {
-  const config = useRuntimeConfig();
+export default defineNuxtPlugin((_nuxtApp) => {
+  const config = useRuntimeConfig()
 
-  if(!(config && config.inkthreadable)) return;
+  if (!(config && config.inkthreadable)) return
 
-  const { appId, secretKey } = config.inkthreadable;
-  const { inkthreadable } = config.public;
+  const { appId, secretKey } = config.inkthreadable
+  const { inkthreadable } = config.public
 
   return {
     provide: {
@@ -16,5 +16,5 @@ export default defineNuxtPlugin(_nuxtApp => {
       getOrderCount: () => getOrderCount(appId, secretKey, inkthreadable),
       getOrders: () => getOrders(appId, secretKey),
     },
-  };
-});
+  }
+})

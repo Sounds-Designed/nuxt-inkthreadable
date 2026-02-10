@@ -1,5 +1,5 @@
-import { createConsola } from "consola";
+import { createConsola } from 'consola'
 
-const consola = createConsola({ fancy: true });
+const consola = createConsola({ fancy: true })
 
-export default consola;
+export default consola
