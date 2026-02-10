@@ -10,7 +10,8 @@ export default defineConfig({
     resolveSnapshotPath(path, extension, { config }) {
       if (config.name === 'vue') {
         return path.replace(/\/([^/]+)\.spec\.ts$/, `/__snapshots__/$1-vue.spec.ts${extension}`)
-      } else {
+      }
+      else {
         return path.replace(/\/([^/]+)\.spec\.ts$/, `/__snapshots__/$1.spec.ts${extension}`)
       }
     },
@@ -23,12 +24,12 @@ export default defineConfig({
           environment: 'nuxt',
           environmentOptions: {
             nuxt: {
-              rootDir: fileURLToPath(new URL('test/nuxt/', import.meta.url))
-            }
+              rootDir: fileURLToPath(new URL('test/nuxt/', import.meta.url)),
+            },
           },
-          setupFiles: fileURLToPath(new URL('test/nuxt/setup.ts', import.meta.url))
-        }
-      })
-    ]
-  }
+          setupFiles: fileURLToPath(new URL('test/nuxt/setup.ts', import.meta.url)),
+        },
+      }),
+    ],
+  },
 })

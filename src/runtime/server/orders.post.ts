@@ -1,15 +1,13 @@
-import { defineEventHandler, readBody, useRuntimeConfig } from "#imports";
-import { sha1 } from "js-sha1";
-import { create } from "node:domain";
-import { createOrder } from "../utils";
+import { useRuntimeConfig } from '#imports'
+import { createOrder } from '../utils'
 
-export default defineEventHandler(async event => {
-  const requestBody = JSON.parse(await readBody(event));
+export default defineEventHandler(async (event) => {
+  const requestBody = JSON.parse(await readBody(event))
 
-  const config = useRuntimeConfig();
+  const config = useRuntimeConfig()
 
-  const { inkthreadable } = config.public;
-  const { appId, secretKey } = config.inkthreadable;
+  const { inkthreadable } = config.public
+  const { appId, secretKey } = config.inkthreadable
 
   // Test data
   // const data = {
@@ -45,4 +43,4 @@ export default defineEventHandler(async event => {
   // };
 
   return createOrder(appId, secretKey, requestBody, inkthreadable)
-});
+})
