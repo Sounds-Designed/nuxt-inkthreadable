@@ -57,6 +57,8 @@ const submitOrder = () => {
         },
       ],
     }),
+  }).finally(() => {
+    getOrders()
   })
 }
 

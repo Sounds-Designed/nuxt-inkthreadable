@@ -13,7 +13,11 @@ const deleting = ref(false)
 const deleteOrder = async () => {
   deleting.value = true
 
-  await $fetch('/api/_inkthreadable/orders', { method: 'DELETE', body: { id } })
+  console.log('Deleting Order: %s', id)
+
+  await fetch('/api/_inkthreadable/orders', { method: 'DELETE', body: JSON.stringify({ orderId: id }) }).finally(() => {
+    navigateTo({name: "orders"})
+  })
 
   deleting.value = false
 }
