@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v1.0.1...v1.0.2)
+
+### 🩹 Fixes
+
+- Missing logger ([e579f56](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/e579f56))
+- Lint issues ([b373e5a](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/b373e5a))
+
+### 🏡 Chore
+
+- **release:** V1.0.1 ([ac58605](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/ac58605))
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v1.0.1
 
 [compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v1.0.0...v1.0.1)
