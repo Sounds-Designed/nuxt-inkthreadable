@@ -16,7 +16,7 @@ const getOrders = () => {
   console.log('Getting Orders')
 
   fetch('/api/_inkthreadable/orders').then(async (res) => {
-    orders.value = (await res.json()).map(i => i.order)
+    orders.value = await res.json()
   })
 }
 

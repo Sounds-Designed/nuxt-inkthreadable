@@ -1,43 +1,39 @@
 <script setup lang="ts">
-const route = useRoute()
+  const order = ref({});
 
-const { id } = route.params
+  const getOrder = () => {
+    console.log("Getting Orders");
 
-const serverUrl = `/api/_inkthreadable/order/${id}`
+    const route = useRoute();
 
-const { data: order, pending } = await useAsyncData(`order-${id}`, async () => {
-  return await $fetch(serverUrl)
-})
+    fetch(`/api/_inkthreadable/order/${route.params.id}`).then(async res => {
+      order.value = await res.json();
+    });
+  };
 
-const deleting = ref(false)
-const deleteOrder = async () => {
-  deleting.value = true
+  const route = useRoute();
 
-  console.log('Deleting Order: %s', id)
+  const deleteOrder = async (orderId: string | number) => {
+    console.log("Deleting Order: %s", orderId);
+    await fetch(`/api/_inkthreadable/orders`, { method: "DELETE", body: JSON.stringify({ orderId: route.params.id }) });
 
-  await fetch('/api/_inkthreadable/orders', { method: 'DELETE', body: JSON.stringify({ orderId: id }) }).finally(() => {
-    navigateTo({ name: 'orders' })
-  })
+    navigateTo({ name: "orders" });
+  };
 
-  deleting.value = false
-}
+  onMounted(() => {
+    getOrder();
+  });
 </script>
 
 <template>
   <div>
     <h1>Order</h1>
 
-    <button
-      :disabled="deleting"
-      @click="deleteOrder"
-    >
-      Delete Order
-    </button>
-
-    <pre v-if="!pending">
-      <code>
-{{ order }}
-      </code>
-    </pre>
+    <div>
+      <div :key="order.id">
+        <button @click="() => getOrder(order.id)">Get Order</button>
+        <button @click="() => deleteOrder(order.id)">Delete Order</button>
+      </div>
+    </div>
   </div>
 </template>
