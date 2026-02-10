@@ -1,15 +1,32 @@
-import { defineEventHandler, readBody, useRuntimeConfig } from "#imports";
 import { sha1 } from "js-sha1";
-import { create } from "node:domain";
-import { createOrder } from "../utils";
 
-export default defineEventHandler(async event => {
-  const requestBody = JSON.parse(await readBody(event));
+interface GetInkthreadableOrderCountOptions {
+  baseURL: string;
+  debug: boolean;
+}
 
-  const config = useRuntimeConfig();
+enum InkthreadableStatusType {
+  RECEIVED = "received",
+  IN_PROGRESS = "in progress",
+  PAID = "paid",
+  REFUNDED = "refunded",
+  STOCK_ALLOCATION = "stock allocation",
+  PRINTING = "printing",
+  QUALITY_CONTROL = "quality control",
+  INTERNAL_ORDER_QUERY = "internal order query",
+}
 
-  const { inkthreadable } = config.public;
-  const { appId, secretKey } = config.inkthreadable;
+export default async (
+  appId: string,
+  secretKey: string,
+  data: unknown,
+  options?: Partial<GetInkthreadableOrderCountOptions>,
+) => {
+  const _defaults = { baseURL: "https://inkthreadable.co.uk", debug: false };
+
+  const { baseURL, debug } = options ? Object.assign({}, _defaults, options) : _defaults;
+
+  if (debug) console.log("Getting Order Count");
 
   // Test data
   // const data = {
@@ -44,5 +61,18 @@ export default defineEventHandler(async event => {
   //   ],
   // };
 
-  return createOrder(appId, secretKey, requestBody, inkthreadable)
-});
+  const body = JSON.stringify(data);
+  const signature = sha1
+    .create()
+    .update(body + secretKey)
+    .hex();
+
+  const url = `https://www.inkthreadable.co.uk/api/orders.php?AppId=${appId}&Signature=${signature}`;
+
+  return $fetch(url, {
+    body: body,
+    mode: "cors",
+    method: "POST",
+    ignoreResponseError: true,
+  });
+};
