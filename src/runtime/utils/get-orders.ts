@@ -16,7 +16,7 @@ export default async (
 
   if (debug) console.log('Getting Orders')
 
-  const body = 'AppId=' + appId
+  const body = 'limit=200&since_id=2046940&AppId=' + appId
 
   const hash = sha1.create().update(body + secretKey)
 
@@ -24,8 +24,9 @@ export default async (
 
   let orders: unknown[] = []
 
-  const ordersReceived = async (response: unknown) => {
-    orders = response.orders.filter(order => !order.order.deleted)
+  const ordersReceived = async (response: unknown[]) => {
+    console.log(response)
+    orders = response.filter(order => !order.deleted)
   }
 
   const url = `${baseURL}/api/orders.php`
@@ -33,10 +34,15 @@ export default async (
   const finalUrl = `${url}?${query}`
 
   await $fetch(finalUrl).then((res) => {
-    ordersReceived(res)
+    console.log(res.orders)
+    ordersReceived(res.orders.map(order => order.order))
+
+    return Promise.resolve(res.orders)
   }).catch((err) => {
     console.log(err)
   })
+
+  console.log(orders.length)
 
   return orders
 }
