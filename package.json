@@ -1,6 +1,6 @@
 {
   "name": "@sounds-designed/nuxt-inkthreadable",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Nuxt module for connecting to the Inkthreadable API",
   "repository": {
     "type": "git",

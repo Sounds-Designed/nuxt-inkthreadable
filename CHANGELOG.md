@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Get order endpoint ([524e833](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/524e833))
+- Endpoint improvements ([e60d1b2](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/e60d1b2))
+- Playground improvements ([f80ebfe](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/f80ebfe))
+
+### 🏡 Chore
+
+- **release:** V0.0.6 ([2751087](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/2751087))
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v0.0.6
 
 [compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v0.0.5...v0.0.6)
