@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.1
+
+[compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v1.0.0...v1.0.1)
+
+### 🩹 Fixes
+
+- README ([f1f9989](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/f1f9989))
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v1.0.0
 
 ### Initial v1 release
