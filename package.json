@@ -41,7 +41,8 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.3.0"
+    "@nuxt/kit": "^4.3.0",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^3.1.1",
@@ -52,7 +53,6 @@
     "@types/node": "latest",
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.6.2",
-    "defu": "^6.1.4",
     "eslint": "^9.39.2",
     "happy-dom": "^20.0.11",
     "js-sha1": "^0.7.0",
