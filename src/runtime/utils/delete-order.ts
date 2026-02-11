@@ -1,4 +1,4 @@
-import { sha1 } from 'js-sha1'
+import sha1 from 'js-sha1'
 
 interface GetInkthreadableOrderCountOptions {
   baseURL: string
@@ -19,9 +19,7 @@ export default async (
 
   const params = `AppId=${appId}&id=${orderId}`
 
-  const hash = sha1.create().update(params + secretKey)
-
-  const signature = hash.hex()
+  const signature = sha1.sha1(params + secretKey)
 
   const url = `${baseURL}/api/orders.php`
   const query = `AppId=${appId}&Signature=${signature}&id=${orderId}`
