@@ -1,4 +1,4 @@
-import { sha1 } from 'js-sha1'
+import * as sha1 from 'js-sha1'
 import logger from './logger'
 
 interface GetInkthreadableOrderCountOptions {
@@ -34,7 +34,7 @@ export default async (appId: string, secretKey: string, options?: Partial<GetInk
   /**
    * Create a SHA-1 instance
    */
-  const signature = sha1(body + secretKey)
+  const signature = sha1.sha1(body + secretKey)
 
   if (debug) logger.info('Signature: %s', signature)
 

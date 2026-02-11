@@ -1,4 +1,4 @@
-import { sha1 } from 'js-sha1'
+import * as sha1 from 'js-sha1'
 
 interface GetInkthreadableOrderCountOptions {
   baseURL: string
@@ -18,9 +18,7 @@ export default async (
 
   const body = 'limit=200&since_id=2046940&AppId=' + appId
 
-  const hash = sha1.create().update(body + secretKey)
-
-  const signature = hash.hex()
+  const signature = sha1.sha1(body + secretKey)
 
   let orders: unknown[] = []
 
