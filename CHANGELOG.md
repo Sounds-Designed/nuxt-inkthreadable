@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v1.0.4
+
+[compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v1.0.3...v1.0.4)
+
+### 🩹 Fixes
+
+- Imports ([2abb5ca](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/2abb5ca))
+- Dependencies ([4a94e43](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/4a94e43))
+- Package manifest ([d4cebc5](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/d4cebc5))
+- Dependencies ([f29b112](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/f29b112))
+
+### 🏡 Chore
+
+- **release:** V1.0.3 ([921b9ef](https://github.com/Sounds-Designed/nuxt-inkthreadable/commit/921b9ef))
+
+### ❤️ Contributors
+
+- Alex Scott ([@codetheorist](https://github.com/codetheorist))
+
 ## v1.0.3
 
 [compare changes](https://github.com/Sounds-Designed/nuxt-inkthreadable/compare/v1.0.2...v1.0.3)
